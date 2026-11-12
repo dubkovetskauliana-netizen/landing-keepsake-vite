@@ -1,0 +1,40 @@
+$color-primary-darker: #2d2d2d;
+$color-primary-dark: #7c7575;
+$color-primary: #999;
+$color-primary-light: #e6e6e6;
+$color-primary-lighter: #fafafa;
+
+$text-color: #333;
+$font-main: 'Inter', system-ui, sans-serif;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 544px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1600px
+);
+
+$grid-columns: 12;
+$grid-fluid: false;
+$grid-gutter-widths: (
+        down sm: 40px,
+        up md: 30px,
+);
+
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1140px
+);
+
+$border-radius: 5px;
+
+:root {
+  --font-main: #{$font-main};
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-primary-light};
+  --text-color: #{$text-color};
+}
