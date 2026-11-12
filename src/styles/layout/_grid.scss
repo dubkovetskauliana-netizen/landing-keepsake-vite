@@ -1,4 +1,126 @@
-.container {
-  width: min(1200px, 90%);
-  margin-inline: auto;
+@use '../utils' as *;
+
+.works {
+  padding: rem(64) 0;
+
+  &__more {
+    margin-top: rem(28);
+    text-align: center;
+  }
+}
+
+.works-filter {
+  &__radio {
+    @include visually-hidden;
+  }
+
+  &__chip {
+    display: inline-flex;
+    padding: rem(8) rem(20);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-hero);
+    font-size: rem(12);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-right: rem(8);
+    margin-bottom: rem(12);
+    color: var(--color-text-dark);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      border-color: var(--color-accent);
+    }
+  }
+
+  &__radio:checked + &__chip {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-white);
+  }
+}
+
+[id='filter-branding']:checked ~ .works-grid .works-grid__item:not([data-category='branding']),
+[id='filter-identity']:checked ~ .works-grid .works-grid__item:not([data-category='identity']),
+[id='filter-print']:checked ~ .works-grid .works-grid__item:not([data-category='print']),
+[id='filter-web']:checked ~ .works-grid .works-grid__item:not([data-category='web']),
+[id='filter-motion']:checked ~ .works-grid .works-grid__item:not([data-category='motion']) {
+  display: none;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: rem(16);
+  margin-top: rem(20);
+
+  @include mq(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mq(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.work-card {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-bg-light);
+
+  &__thumb {
+    position: relative;
+    aspect-ratio: 1 / 0.72;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__overlay {
+    @include flex-center(rem(6));
+
+    flex-direction: column;
+    position: absolute;
+    inset: 0;
+    background-color: var(--color-overlay);
+    color: var(--color-white);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: rem(16);
+  }
+
+  &:hover &__overlay,
+  &:focus-within &__overlay {
+    opacity: 1;
+  }
+
+  &__plus {
+    @include flex-center;
+
+    width: rem(40);
+    height: rem(40);
+    background-color: var(--color-teal);
+    border-radius: 50%;
+    font-size: rem(22);
+  }
+
+  &__name {
+    font-family: var(--font-hero);
+    font-size: rem(18);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__cat {
+    font-size: rem(12);
+    color: var(--color-accent);
+  }
 }

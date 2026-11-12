@@ -1,0 +1,11 @@
+section#services.services
+  .container
+    .section-header
+      h2.section-title What we do
+    ul.services-grid
+      each service in services
+        li.service-card
+          .service-card__icon
+            +icon(service.icon, 28)
+          h3.service-card__title= service.title
+          p.service-card__text= service.text

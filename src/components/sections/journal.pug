@@ -1,0 +1,14 @@
+section#journal.journal
+  .container
+    .section-header
+      h2.section-title From the journal
+    .journal-grid
+      each post in journalPosts
+        article.journal-card
+          .journal-card__media
+            +picture(post.image, post.alt, 800, 500).journal-card__img
+          .journal-card__body
+            p.journal-card__meta #{ post.date } / #{ post.category }
+            h3.journal-card__title
+              a.journal-card__link(href='#journal')= post.title
+            p.journal-card__excerpt= post.excerpt

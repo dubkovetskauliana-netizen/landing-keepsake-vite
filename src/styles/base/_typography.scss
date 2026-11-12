@@ -1,16 +1,26 @@
-*, html, body {
-  font-family: "Montserrat", sans-serif;
+@use '../utils' as *;
+
+.section-header {
+  margin-bottom: rem(28);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: rem(10);
+  font-family: var(--font-hero);
+  font-size: rem(18);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-text-dark);
 
-a {
-  cursor: pointer;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: rem(40);
+    height: 2px;
+    background-color: var(--color-accent);
+  }
 }

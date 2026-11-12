@@ -1,40 +1,31 @@
-$color-primary-darker: #2d2d2d;
-$color-primary-dark: #7c7575;
-$color-primary: #999;
-$color-primary-light: #e6e6e6;
-$color-primary-lighter: #fafafa;
-
-$text-color: #333;
-$font-main: 'Inter', system-ui, sans-serif;
-
-$grid-breakpoints: (
-        xs: 0,
-        sm: 544px,
-        md: 768px,
-        lg: 992px,
-        xl: 1200px,
-        xxl: 1600px
+$colors: (
+  'accent': #f95858,
+  'accent-hover': #e44646,
+  'teal': #2cd5c4,
+  'text-dark': #3a3a3c,
+  'text': #666a6e,
+  'muted': #9aa0a6,
+  'bg-light': #f0f3f4,
+  'white': #fff,
+  'border': #e1e5e8,
+  'footer': #2a2a2d,
+  'overlay': rgb(30 32 36 / 82%),
 );
-
-$grid-columns: 12;
-$grid-fluid: false;
-$grid-gutter-widths: (
-        down sm: 40px,
-        up md: 30px,
+$fonts: (
+  'hero': (
+    'Oswald',
+    sans-serif,
+  ),
+  'main': (
+    'Open Sans',
+    sans-serif,
+  ),
+  'logo': (
+    'Dancing Script',
+    cursive,
+  ),
 );
-
-$container-max-widths: (
-        sm: 540px,
-        md: 720px,
-        lg: 960px,
-        xl: 1140px
+$breakpoints: (
+  'md': 768px,
+  'lg': 1280px,
 );
-
-$border-radius: 5px;
-
-:root {
-  --font-main: #{$font-main};
-  --color-primary: #{$color-primary};
-  --color-secondary: #{$color-primary-light};
-  --text-color: #{$text-color};
-}

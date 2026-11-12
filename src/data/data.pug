@@ -1,5 +1,84 @@
-- const navLinks = [{href: '#favourite', text: 'Мої улюблені солодощі'}, {href: '#tip', text: 'Порада від Yummy'}]
+-
+  const navLinks = [
+      { title: 'Studio', href: '#hero', active: true },
+      { title: 'Works', href: '#works', active: false },
+      { title: 'Services', href: '#services', active: false },
+      { title: 'Journal', href: '#journal', active: false },
+      { title: 'Contact', href: '#contact', active: false }
+  ]
 
-- const cards = [{image: 'card1.png', title: 'Червоний мак', description: 'Пралене з додаванням карамельної крихти, пасти ядер горіхів фундука та мигдалюпокрите шоколадною глазурʼю'}, {image: 'card2.png', title: 'Сливки-ленивки', description: 'Світлі вафельні листи, поєднані молочно-вершковою начинкою та покриті глазур’ю.'}, {image: 'card3.png', title: 'Ліщина', description: 'Праліне з додаванням подрібненої та тертої ліщини та мигдалю, покрите шоколадною глазур’ю.'}]
+  const filterCategories = [
+      { id: 'all', label: 'All', checked: true },
+      { id: 'branding', label: 'Branding', checked: false },
+      { id: 'identity', label: 'Identity', checked: false },
+      { id: 'print', label: 'Print', checked: false },
+      { id: 'web', label: 'Web', checked: false },
+      { id: 'motion', label: 'Motion', checked: false }
+  ]
 
-- const sweets = ['Чорний шоколад', 'Зефір', 'Пастила', 'Мармелад', 'Мед', 'Халва', 'Цукати']
+  const works = [
+      { title: 'Creative Identity', category: 'branding', catLabel: 'Branding', image: 'work-01', alt: 'Брендинг та айдентика компанії' },
+      { title: 'Mobile Application', category: 'identity', catLabel: 'Identity', image: 'work-02', alt: 'Дизайн мобільного додатку' },
+      { title: '3D Illustration', category: 'web', catLabel: 'Web', image: 'work-03', alt: 'Тривимірна ілюстрація для вебсайту' },
+      { title: 'Corporate Website', category: 'motion', catLabel: 'Motion', image: 'work-04', alt: 'Корпоративний вебсайт з анімацією' },
+      { title: 'Editorial Magazine', category: 'print', catLabel: 'Print', image: 'work-05', alt: 'Дизайн друкованого журналу' },
+      { title: 'Minimal Packaging', category: 'branding', catLabel: 'Branding', image: 'work-06', alt: 'Мінімалістичне пакування продукту' }
+  ]
+
+  const services = [
+      { icon: 'web', title: 'Web Design', text: 'Проєктування сучасних адаптивних сайтів та інтерфейсів.' },
+      { icon: 'motion', title: 'Motion Video', text: 'Створення динамічної графіки та промо-роликів.' },
+      { icon: 'print', title: 'Print Design', text: 'Розробка поліграфії, каталогів та фірмового пакування.' },
+      { icon: 'illustration', title: 'Illustration', text: 'Авторські векторні та цифрові ілюстрації для брендів.' }
+  ]
+
+  const stats = [
+      { value: '7518', label: 'Shots Taken', icon: 'camera' },
+      { value: '3472', label: 'Cups of Coffee', icon: 'coffee' },
+      { value: '2184', label: 'Movies Watched', icon: 'film' },
+      { value: '4523', label: 'Awards Won', icon: 'trophy' }
+  ]
+
+  const journalPosts = [
+      {
+          date: '14 Oct, 2026',
+          category: 'Branding, Identity',
+          title: 'Як побудувати впізнаваний візуальний стиль бренду',
+          excerpt: 'Розбираємо ключові етапи створення айдентики від дослідження аудиторії до брендбуку.',
+          image: 'journal-01',
+          alt: 'Робочий стіл дизайнера з ескізами'
+      },
+      {
+          date: '28 Sep, 2026',
+          category: 'Web, UI/UX',
+          title: 'Тренди мінімалізму та типографіки у вебдизайні',
+          excerpt: 'Чому чиста сітка та контрастні шрифти працюють краще за перевантажені анімації.',
+          image: 'journal-02',
+          alt: 'Макет вебсайту на екрані ноутбука'
+      }
+  ]
+
+  const footerColumns = [
+      {
+          heading: 'Studio',
+          links: [
+              { title: 'About Us', href: '#hero' },
+              { title: 'Our Team', href: '#services' },
+              { title: 'Careers', href: '#contact' }
+          ]
+      },
+      {
+          heading: 'Services',
+          links: [
+              { title: 'Branding', href: '#works' },
+              { title: 'Web Design', href: '#works' },
+              { title: 'Print & Motion', href: '#works' }
+          ]
+      }
+  ]
+
+  const socials = [
+      { name: 'dribbble', title: 'Dribbble', href: '#' },
+      { name: 'behance', title: 'Behance', href: '#' },
+      { name: 'instagram', title: 'Instagram', href: '#' }
+  ]

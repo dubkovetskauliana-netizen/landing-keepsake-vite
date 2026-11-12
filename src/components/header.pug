@@ -1,4 +1,25 @@
 header.header
-    .header-inner
-        include logo
-        include navigation
+  .container.header__container
+    a.logo(href='#hero')
+      span.logo__accent K
+      | eepsake
+
+    input#menu-toggle.header__checkbox(type='checkbox')
+    label.header__burger(for='menu-toggle', aria-label='Відкрити або закрити меню')
+      span.header__burger-line
+      span.header__burger-line
+      span.header__burger-line
+
+    nav.nav(aria-label='Головна навігація')
+      ul.nav__list
+        each item in navLinks
+          li.nav__item
+            a.nav__link(
+              href=item.href,
+              class={ 'nav__link--active': item.active },
+              aria-current=item.active ? 'page' : false
+            )= item.title
+      .nav__actions
+        a.nav__fav(href='#works', aria-label='Обрані роботи')
+          +icon('heart', 16)
+        +btn('Get in touch', '#contact', 'secondary').nav__cta

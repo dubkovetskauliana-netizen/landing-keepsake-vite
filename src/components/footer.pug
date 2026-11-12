@@ -1,5 +1,31 @@
 footer.footer
-    .footer-outer
-        .footer-inner
-            include logo
-            h4 Приєднуйся і живи зі мною у світі солодощів!
+  .container
+    .footer__top
+      each col in footerColumns
+        .footer__col
+          h3.footer__heading= col.heading
+          ul.footer__list
+            each link in col.links
+              li.footer__item
+                a.footer__link(href=link.href)= link.title
+
+      .footer__subscribe
+        h3.footer__heading Newsletter
+        form.subscribe-form(novalidate)
+          label.visually-hidden(for='sub-email') Email address
+          input#sub-email.subscribe-form__input(
+            type='email',
+            placeholder='Your email address',
+            required
+          )
+          +btn('', '', 'primary').subscribe-form__btn(type='submit') Subscribe
+
+    .footer__bottom
+      a.logo.logo--light(href='#hero')
+        span.logo__accent K
+        | eepsake
+      p.footer__copy &copy; 2026 Keepsake Agency. All rights reserved.
+      ul.footer__socials
+        each soc in socials
+          li.footer__social-item
+            a.footer__social-link(href=soc.href)= soc.title

@@ -1,7 +1,105 @@
+@use '../utils' as *;
+
 .footer {
-  background: var(--color-secondary);
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
+  background-color: var(--color-footer);
+  color: var(--color-muted);
+  padding: rem(56) 0 rem(32);
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: rem(32);
+    padding-bottom: rem(36);
+    border-bottom: 1px solid rgb(255 255 255 / 10%);
+
+    @include mq(md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__heading {
+    font-family: var(--font-hero);
+    font-size: rem(13);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-white);
+    margin-bottom: rem(14);
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+  }
+
+  &__link {
+    color: var(--color-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-white);
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: rem(16);
+    padding-top: rem(24);
+
+    @include mq(md) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__socials {
+    list-style: none;
+    display: flex;
+    gap: rem(16);
+  }
+
+  &__social-link {
+    color: var(--color-muted);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}
+
+.subscribe-form {
+  display: flex;
+  gap: rem(8);
+
+  &__input {
+    flex-grow: 1;
+    padding: rem(10) rem(14);
+    border: 1px solid rgb(255 255 255 / 20%);
+    background-color: transparent;
+    color: var(--color-white);
+  }
+}
+
+.scroll-top {
+  @include flex-center;
+
+  position: fixed;
+  right: rem(20);
+  bottom: rem(20);
+  width: rem(40);
+  height: rem(40);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: var(--color-accent-hover);
+  }
 }

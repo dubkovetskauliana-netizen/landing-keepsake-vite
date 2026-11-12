@@ -1,0 +1,22 @@
+section#works.works
+  .container
+    .section-header
+      h2.section-title Our awesome works
+
+    .works-filter
+      each cat in filterCategories
+        input.works-filter__radio(
+          type='radio',
+          name='portfolio-filter',
+          id=`filter-${cat.id}`,
+          checked=cat.checked
+        )
+        label.works-filter__chip(for=`filter-${cat.id}`)= cat.label
+
+      .works-grid
+        each work in works
+          .works-grid__item(data-category=work.category)
+            +work-card(work)
+
+    .works__more
+      +btn('Load more works', '', 'secondary').works__more-btn

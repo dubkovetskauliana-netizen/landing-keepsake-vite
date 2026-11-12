@@ -1,0 +1,71 @@
+mixin btn(text, href = '#', variant = 'primary')
+  if href
+    a.btn(href=href, class=`btn--${variant}`)&attributes(attributes)
+      if block
+        block
+      else
+        = text
+  else
+    button.btn(type='button', class=`btn--${variant}`)&attributes(attributes)
+      if block
+        block
+      else
+        = text
+
+mixin icon(name, size = 24)
+  svg.icon(width=size, height=size, aria-hidden='true')&attributes(attributes)
+    case name
+      when 'heart'
+        use(href='#icon-heart')
+      when 'arrow-up'
+        use(href='#icon-arrow-up')
+      when 'web'
+        use(href='#icon-web')
+      when 'motion'
+        use(href='#icon-motion')
+      when 'print'
+        use(href='#icon-print')
+      when 'illustration'
+        use(href='#icon-illustration')
+      default
+        use(href=`#icon-${name}`)
+
+mixin picture(name, alt, width = 800, height = 576, isHero = false, sizes = '(min-width: 1280px) 357px, (min-width: 768px) 50vw, 100vw')
+  picture
+    source(
+      type='image/avif',
+      srcset=`/src/assets/images/${name}-400.avif 400w, /src/assets/images/${name}-800.avif 800w`,
+      sizes=sizes
+    )
+    source(
+      type='image/webp',
+      srcset=`/src/assets/images/${name}-400.webp 400w, /src/assets/images/${name}-800.webp 800w`,
+      sizes=sizes
+    )
+    if isHero
+      img(
+        src=`/src/assets/images/${name}-800.jpg`,
+        alt=alt,
+        width=width,
+        height=height,
+        fetchpriority='high',
+        decoding='async'
+      )&attributes(attributes)
+    else
+      img(
+        src=`/src/assets/images/${name}-800.jpg`,
+        alt=alt,
+        width=width,
+        height=height,
+        loading='lazy',
+        decoding='async'
+      )&attributes(attributes)
+
+mixin work-card(work)
+  article.work-card(tabindex='0')
+    .work-card__thumb
+      +picture(work.image, work.alt, 800, 576).work-card__img
+      .work-card__overlay
+        span.work-card__plus(aria-hidden='true') +
+        h3.work-card__name= work.title
+        p.work-card__cat= work.catLabel

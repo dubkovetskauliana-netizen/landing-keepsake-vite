@@ -1,13 +1,43 @@
-.button {
-  background: var(--color-primary);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 0.75rem 1.5rem;
+@use '../utils' as *;
+
+.btn {
+  @include flex-center;
+
+  padding: rem(12) rem(24);
+  font-family: var(--font-hero);
+  font-size: rem(12);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: background 0.2s;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 
-  &:hover {
+  &:focus-visible {
+    outline: 2px solid var(--color-text-dark);
+    outline-offset: 2px;
+  }
 
+  &--primary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+
+    &:hover {
+      background-color: var(--color-accent-hover);
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    color: var(--color-text-dark);
+    border-color: var(--color-text-dark);
+
+    &:hover {
+      background-color: var(--color-text-dark);
+      color: var(--color-white);
+    }
   }
 }

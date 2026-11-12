@@ -1,0 +1,9 @@
+section.stats(aria-label='Досягнення агенції')
+  .container
+    ul.stats-grid
+      each item in stats
+        li.stat-item
+          .stat-item__icon
+            +icon(item.icon, 28)
+          span.stat-item__value= item.value
+          span.stat-item__label= item.label
