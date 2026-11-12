@@ -4,7 +4,7 @@ import path from 'path';
 import fs from 'fs';
 
 export default {
-  base: './',
+  base: '/landing-keepsake-vite/',
   plugins: [
     vituum({
       imports: {
@@ -16,20 +16,19 @@ export default {
     }),
     pug({ root: './src' }),
     {
-      name: 'dev-index-redirect',
-      configureServer(server) {
-        server.middlewares.use((req, res, next) => {
-          if (req.url === '/' || req.url === '/index.html') {
-            req.url = '/index.pug.html';
-          }
-          next();
-        });
-      },
+      name: 'github-pages-assets',
       closeBundle() {
-        const oldPath = path.resolve(import.meta.dirname, 'dist/index.pug.html');
-        const newPath = path.resolve(import.meta.dirname, 'dist/index.html');
-        if (fs.existsSync(oldPath)) {
-          fs.renameSync(oldPath, newPath);
+        const distDir = path.resolve(import.meta.dirname, 'dist');
+        const oldHtml = path.join(distDir, 'index.pug.html');
+        const newHtml = path.join(distDir, 'index.html');
+        if (fs.existsSync(oldHtml)) {
+          fs.renameSync(oldHtml, newHtml);
+        }
+
+        const srcImages = path.resolve(import.meta.dirname, 'src/assets/images');
+        const destImages = path.join(distDir, 'assets/images');
+        if (fs.existsSync(srcImages)) {
+          fs.cpSync(srcImages, destImages, { recursive: true });
         }
       },
     },
